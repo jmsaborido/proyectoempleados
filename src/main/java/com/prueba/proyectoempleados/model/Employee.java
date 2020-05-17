@@ -4,17 +4,17 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "employees", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "first_name", "last_name"
-        })
+        @UniqueConstraint(columnNames = {"first_name","last_name"})
 })
 public class Employee {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "emp_no")
     private Integer idEmployee;
     @Temporal(TemporalType.DATE)
@@ -29,5 +29,8 @@ public class Employee {
     @Temporal(TemporalType.DATE)
     @Column(name = "hire_date", nullable = false)
     private Date hireDate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idempleado")
+    private List<Salaries> salaries;
 
 }

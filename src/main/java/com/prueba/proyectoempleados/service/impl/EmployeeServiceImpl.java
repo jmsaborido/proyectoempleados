@@ -1,7 +1,6 @@
 package com.prueba.proyectoempleados.service.impl;
 
 import com.prueba.proyectoempleados.dao.EmployeeRepository;
-import com.prueba.proyectoempleados.dto.EmployeeDTO;
 import com.prueba.proyectoempleados.dto.EmployeePostDTO;
 import com.prueba.proyectoempleados.exception.EmployeeNotFoundException;
 import com.prueba.proyectoempleados.mapper.EmployeeMapper;
@@ -13,8 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.List;import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
