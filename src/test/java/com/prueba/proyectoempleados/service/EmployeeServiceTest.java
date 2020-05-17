@@ -28,20 +28,20 @@ public class EmployeeServiceTest {
     @BeforeEach
     public void setup() {
         Employee employeeMock = new Employee();
-        employeeMock.setFirstName("Manolo");
-        employeeMock.setLastName("Martinez");
+        employeeMock.setFirstName("Manuel");
+        employeeMock.setLastName("Millan");
         Optional<Employee> optEmployee = Optional.of(employeeMock);
-        Mockito.when(employeeRepository.findEmployeeByCompleteName("Manovlo", "Martinez")).thenReturn(optEmployee);
+        Mockito.when(employeeRepository.findEmployeeByCompleteName("Manuel", "Millan")).thenReturn(optEmployee);
     }
 
     @Test
     void getEmployeeByNameTest() throws EmployeeNotFoundException {
         EmployeeDTO employeeDTO = employeeMapper.employeeToEmployeeDTO(
-                employeeService.getEmployeeByCompleteName("Manolo", "Martinez")
+                employeeService.getEmployeeByCompleteName("Manuel", "Millan")
         );
         EmployeeDTO employeeEsperado = new EmployeeDTO();
-        employeeEsperado.setName("Manolo");
-        employeeEsperado.setLastName("Martinez");
+        employeeEsperado.setName("Manuel");
+        employeeEsperado.setLastName("Millan");
         Assertions.assertThat(employeeDTO).isEqualToComparingOnlyGivenFields(employeeEsperado, "name", "lastName");
     }
 

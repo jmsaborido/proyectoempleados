@@ -9,18 +9,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+@Embeddable
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SalaryPK implements Serializable {
 
-    @ManyToOne()
-    @JoinColumn(name = "emp_no")
+
     private Employee idempleado;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "from_date", nullable = false)
     private Date fromDate;
 
 }
